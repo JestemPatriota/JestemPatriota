@@ -5,17 +5,97 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jestem Patriota</title>
     <style>
-        body { font-family: sans-serif; text-align: center; background-color: #f4f4f4; padding: 50px; }
-        h1 { color: #cc0000; }
-        p { font-size: 1.2rem; color: #333; }
-        .foto { max-width: 80%; border: 5px solid #fff; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        /* Główne style - tło strony */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: #f8f9fa; /* Bardzo jasne szare tło dla lepszego kontrastu z białą sekcją */
+            color: #333;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* GÓRNA SEKCJA - BIAŁA (z flagi) */
+        .white-section {
+            background-color: #ffffff;
+            color: #cc0000; /* Czerwony tekst na białym tle */
+            padding: 80px 20px;
+            text-align: center;
+            border-bottom: 5px solid #cc0000; /* Czerwony pasek oddzielający */
+        }
+
+        .white-section h1 {
+            margin: 0;
+            font-size: 3.5rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            /* Subtelny cień tekstu dla lepszej głębi */
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        /* DOLNA SEKCJA - CZERWONA (z flagi) */
+        .red-section {
+            flex: 1; /* Ta sekcja zajmie resztę dostępnej wysokości strony */
+            background-color: #cc0000; /* Czerwień flagi Polski */
+            color: #ffffff; /* Biały tekst na czerwonym tle */
+            padding: 60px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .red-section p.lead {
+            font-size: 1.5rem;
+            font-weight: 300;
+            max-width: 700px;
+            margin: 0 0 40px 0;
+            opacity: 0.9;
+        }
+
+        /* Stylizacja zdjęcia */
+        .patriotic-photo {
+            max-width: 90%;
+            height: auto;
+            border: 10px solid #ffffff; /* Biała ramka wokół zdjęcia */
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3); /* Duży cień dla efektu "wow" */
+            border-radius: 4px; /* Bardzo lekkie zaokrąglenie rogów */
+            transition: transform 0.3s ease; /* Płynna animacja na najechanie kursorem */
+        }
+
+        .patriotic-photo:hover {
+            transform: scale(1.02); /* Lekkie powiększenie po najechaniu myszką */
+        }
+
+        /* Prosta stopka */
+        .footer {
+            background-color: #333;
+            color: rgba(255,255,255,0.7);
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9rem;
+        }
     </style>
 </head>
 <body>
-    <h1>Witaj na stronie Jestem Patriota</h1>
-    <p>To jest początek mojej witryny tworzonej na GitHubie.</p>
-    
-    <img src="mojezdjecie.jpg" alt="Moje zdjęcie" class="foto">
+
+    <div class="white-section">
+        <h1>Witaj na stronie Jestem Patriota</h1>
+    </div>
+
+    <div class="red-section">
+        <p class="lead">To jest początek mojej witryny tworzonej na GitHubie.</p>
+        
+        <img src="mojezdjecie.jpg" alt="Moje zdjęcie - Jestem Patriota" class="patriotic-photo">
+    </div>
+
+    <div class="footer">
+        © 2026 Jestem Patriota. Wszelkie prawa zastrzeżone.
+    </div>
+
 </body>
 </html>
-
