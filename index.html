@@ -3,99 +3,144 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jestem Patriota</title>
+    <title>Jestem Patriota | Polska Moc</title>
     <style>
-        /* Główne style - tło strony */
         body {
             margin: 0;
             padding: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            background-color: #f8f9fa; /* Bardzo jasne szare tło dla lepszego kontrastu z białą sekcją */
-            color: #333;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #cc0000;
+            color: #fff;
             line-height: 1.6;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
         }
 
-        /* GÓRNA SEKCJA - BIAŁA (z flagi) */
-        .white-section {
+        /* NAGŁÓWEK - BIAŁY */
+        header {
             background-color: #ffffff;
-            color: #cc0000; /* Czerwony tekst na białym tle */
-            padding: 80px 20px;
-            text-align: center;
-            border-bottom: 5px solid #cc0000; /* Czerwony pasek oddzielający */
-        }
-
-        .white-section h1 {
-            margin: 0;
-            font-size: 3.5rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            /* Subtelny cień tekstu dla lepszej głębi */
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-        }
-
-        /* DOLNA SEKCJA - CZERWONA (z flagi) */
-        .red-section {
-            flex: 1; /* Ta sekcja zajmie resztę dostępnej wysokości strony */
-            background-color: #cc0000; /* Czerwień flagi Polski */
-            color: #ffffff; /* Biały tekst na czerwonym tle */
+            color: #cc0000;
             padding: 60px 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
             text-align: center;
+            border-bottom: 8px solid #aa0000;
         }
 
-        .red-section p.lead {
+        header h1 {
+            margin: 0;
+            font-size: 4rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+        }
+
+        /* GŁÓWNA TREŚĆ - CZERWONA */
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        /* KAFELKI Z CIEKAWOSTKAMI */
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            padding: 25px;
+            border-radius: 15px;
+            transition: 0.3s;
+            backdrop-filter: blur(5px);
+        }
+
+        .card:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-5px);
+            border-color: #fff;
+        }
+
+        .card h2 {
+            margin-top: 0;
+            color: #ffd700; /* Złoty kolor dla nagłówków kafelków */
+            text-transform: uppercase;
             font-size: 1.5rem;
-            font-weight: 300;
-            max-width: 700px;
-            margin: 0 0 40px 0;
-            opacity: 0.9;
+            border-bottom: 2px solid #fff;
+            padding-bottom: 10px;
         }
 
-        /* Stylizacja zdjęcia */
-        .patriotic-photo {
-            max-width: 90%;
-            height: auto;
-            border: 10px solid #ffffff; /* Biała ramka wokół zdjęcia */
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3); /* Duży cień dla efektu "wow" */
-            border-radius: 4px; /* Bardzo lekkie zaokrąglenie rogów */
-            transition: transform 0.3s ease; /* Płynna animacja na najechanie kursorem */
+        .card p {
+            font-size: 1.1rem;
         }
 
-        .patriotic-photo:hover {
-            transform: scale(1.02); /* Lekkie powiększenie po najechaniu myszką */
-        }
-
-        /* Prosta stopka */
-        .footer {
-            background-color: #333;
-            color: rgba(255,255,255,0.7);
+        /* SEKCJA DLA ZDJĘCIA (FIATA LUB POLONEZA) */
+        .image-box {
+            grid-column: 1 / -1;
             text-align: center;
-            padding: 20px;
-            font-size: 0.9rem;
+            margin: 40px 0;
+        }
+
+        .image-box img {
+            max-width: 100%;
+            height: auto;
+            border: 10px solid #fff;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        }
+
+        footer {
+            background: #1a1a1a;
+            padding: 30px;
+            text-align: center;
+            margin-top: 50px;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
 
-    <div class="white-section">
-        <h1>Witaj na stronie Jestem Patriota</h1>
-    </div>
+    <header>
+        <h1>JESTEM PATRIOTA</h1>
+    </header>
 
-    <div class="red-section">
-        <p class="lead">To jest początek mojej witryny tworzonej na GitHubie.</p>
+    <div class="container">
         
-        <img src="mojezdjecie.jpg" alt="Moje zdjęcie - Jestem Patriota" class="patriotic-photo">
+        <div class="card">
+            <h2>🚗 Fiat 126p (Maluch)</h2>
+            <p>Ikona polskich dróg. Choć włoski z pochodzenia, to w Polsce zmotoryzował naród. Produkowany w Bielsku-Białej i Tychach. Czy wiesz, że w 1970 roku kosztował tyle, co 30 średnich pensji?</p>
+        </div>
+
+        <div class="card">
+            <h2>🏎️ FSO Polonez</h2>
+            <p>Polska duma z Żerania. Jego nazwa została wybrana w plebiscycie czytelników "Życia Warszawy". Był jednym z najbezpieczniejszych aut w swojej klasie w latach 80.</p>
+        </div>
+
+        <div class="card">
+            <h2>🎵 Mazurek Dąbrowskiego</h2>
+            <p>Hymn powstał w 1797 roku we Włoszech. Pierwotnie była to "Pieśń Legionów Polskich we Włoszech". Co ciekawe, tekst piosenki różni się nieco od dzisiejszej wersji oficjalnej!</p>
+        </div>
+
+        <div class="card">
+            <h2>⚪ Biało-Czerwona</h2>
+            <p>Barwy pochodzą z herbu Królestwa Polskiego i Wielkiego Księstwa Litewskiego. Biel symbolizuje czystość, a czerwień odwagę i krew przelaną za ojczyznę. Oficjalnie uznane za barwy narodowe w 1831 r.</p>
+        </div>
+
+        <div class="card">
+            <h2>💃 Polonez</h2>
+            <p>Nasz najstarszy taniec narodowy. Pierwotnie nazywany "tańcem chodzonym". Do dziś każda polska studniówka zaczyna się właśnie od tych uroczystych kroków.</p>
+        </div>
+
+        <div class="card">
+            <h2>🦅 Orzeł Biały</h2>
+            <p>Według legendy, Lech ujrzał orła na tle zachodzącego słońca w Gnieźnie. Dlatego nasz orzeł ma złotą koronę, dziób i szpony, a spogląda zawsze w prawą stronę.</p>
+        </div>
+
+        <div class="image-box">
+             <img src="auto.jpg" alt="Polska Motoryzacja">
+             <p>Wgraj zdjęcie o nazwie <b>auto.jpg</b>, żeby je tu zobaczyć!</p>
+        </div>
+
     </div>
 
-    <div class="footer">
-        © 2026 Jestem Patriota. Wszelkie prawa zastrzeżone.
-    </div>
+    <footer>
+        &copy; 2026 JESTEM PATRIOTA - CHWAŁA BOHATEROM
+    </footer>
 
 </body>
 </html>
