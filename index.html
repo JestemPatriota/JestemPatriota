@@ -1,146 +1,232 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="favicon.png">
-    <title>Jestem Patriota | Polska Moc</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #cc0000;
-            color: #fff;
-            line-height: 1.6;
-        }
-
-        /* NAGŁÓWEK - BIAŁY */
-        header {
-            background-color: #ffffff;
-            color: #cc0000;
-            padding: 60px 20px;
-            text-align: center;
-            border-bottom: 8px solid #aa0000;
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 4rem;
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: -1px;
-        }
-
-        /* GŁÓWNA TREŚĆ - CZERWONA */
-        .container {
-            max-width: 1200px;
-            margin: 40px auto;
-            padding: 0 20px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-        }
-
-        /* KAFELKI Z CIEKAWOSTKAMI */
-        .card {
-            background: rgba(255, 255, 255, 0.1);
-            border: 2px solid rgba(255, 255, 255, 0.2);
-            padding: 25px;
-            border-radius: 15px;
-            transition: 0.3s;
-            backdrop-filter: blur(5px);
-        }
-
-        .card:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-5px);
-            border-color: #fff;
-        }
-
-        .card h2 {
-            margin-top: 0;
-            color: #ffd700; /* Złoty kolor dla nagłówków kafelków */
-            text-transform: uppercase;
-            font-size: 1.5rem;
-            border-bottom: 2px solid #fff;
-            padding-bottom: 10px;
-        }
-
-        .card p {
-            font-size: 1.1rem;
-        }
-
-        /* SEKCJA DLA ZDJĘCIA (FIATA LUB POLONEZA) */
-        .image-box {
-            grid-column: 1 / -1;
-            text-align: center;
-            margin: 40px 0;
-        }
-
-        .image-box img {
-            max-width: 100%;
-            height: auto;
-            border: 10px solid #fff;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-        }
-
-        footer {
-            background: #1a1a1a;
-            padding: 30px;
-            text-align: center;
-            margin-top: 50px;
-            font-weight: bold;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="JestemPatriotą — przestrzeń dla Polaków, którzy kochają Ojczyznę. Historia, fakty, symbolika i duma z Polski." />
+  <title>JestemPatriotą — Duma z Polski</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
+  <div class="grain" aria-hidden="true"></div>
 
-    <header>
-        <h1>JESTEM PATRIOTĄ</h1>
-    </header>
-
-    <div class="container">
-        
-        <div class="card">
-            <h2>🚗 Fiat 126p (Maluch)</h2>
-            <p>Ikona polskich dróg. Choć włoski z pochodzenia, to w Polsce zmotoryzował naród. Produkowany w Bielsku-Białej i Tychach. Czy wiesz, że w 1970 roku kosztował tyle, co 30 średnich pensji?</p>
-        </div>
-
-        <div class="card">
-            <h2>🚙 FSO Polonez</h2>
-            <p>Polska duma z Żerania. Jego nazwa została wybrana w plebiscycie czytelników "Życia Warszawy". Był jednym z najbezpieczniejszych aut w swojej klasie w latach 80.</p>
-        </div>
-
-        <div class="card">
-            <h2>🎵 Mazurek Dąbrowskiego</h2>
-            <p>Hymn powstał w 1797 roku we Włoszech. Pierwotnie była to "Pieśń Legionów Polskich we Włoszech". Co ciekawe, tekst piosenki różni się nieco od dzisiejszej wersji oficjalnej!</p>
-        </div>
-
-        <div class="card">
-            <h2>⬜ Biało-Czerwona</h2>
-            <p>Barwy pochodzą z herbu Królestwa Polskiego i Wielkiego Księstwa Litewskiego. Biel symbolizuje czystość, a czerwień odwagę i krew przelaną za ojczyznę. Oficjalnie uznane za barwy narodowe w 1831 r.</p>
-        </div>
-
-        <div class="card">
-            <h2>💃 Polonez</h2>
-            <p>Nasz najstarszy taniec narodowy. Pierwotnie nazywany "tańcem chodzonym". Do dziś każda polska studniówka zaczyna się właśnie od tych uroczystych kroków.</p>
-        </div>
-
-        <div class="card">
-            <h2>🦅 Orzeł Biały</h2>
-            <p>Według legendy, Lech ujrzał orła na tle zachodzącego słońca w Gnieźnie. Dlatego nasz orzeł ma złotą koronę, dziób i szpony, a spogląda zawsze w prawą stronę.</p>
-        </div>
-
-        <div class="image-box">
-             <img src="auto.jpg" alt="Polska Motoryzacja">
-        </div>
-
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="logo" href="#hero" aria-label="JestemPatriotą — strona główna">
+        <span class="logo-mark"></span>
+        <span class="logo-text">Jestem<span class="logo-accent">Patriotą</span></span>
+      </a>
+      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Otwórz menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="site-nav" class="site-nav" aria-label="Nawigacja główna">
+        <a href="#fakty">Fakty</a>
+        <a href="#galeria">Galeria</a>
+        <a href="#historia">Historia</a>
+        <a href="#symbole">Symbole</a>
+        <a href="#wspolnota">Wspólnota</a>
+      </nav>
+      <div class="header-actions">
+        <button type="button" class="btn-theme" id="themeToggle" aria-label="Przełącz motyw jasny/ciemny">
+          <span class="theme-icon theme-icon-sun" aria-hidden="true"></span>
+          <span class="theme-icon theme-icon-moon" aria-hidden="true"></span>
+        </button>
+        <a class="btn btn-primary btn-small" href="#cta">Dołącz</a>
+      </div>
     </div>
+  </header>
 
-    <footer>
-        &copy; 2026 JESTEM PATRIOTA - WSZELKIE PRAWA ZASTRZEŻONE | CHWAŁA BOHATEROM
-    </footer>
+  <main>
+    <section id="hero" class="hero">
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="hero-content">
+        <p class="hero-eyebrow">Dla tych, którzy noszą Polskę w sercu</p>
+        <h1 class="hero-title">
+          <span class="hero-title-line">Jestem</span>
+          <span class="hero-title-accent">Patriotą</span>
+        </h1>
+        <p class="hero-lead">
+          Odkrywaj fakty o Polsce, podziwiaj jej piękno i przypominaj sobie, dlaczego warto być dumnym z własnej historii i kultury.
+        </p>
+        <div class="hero-buttons">
+          <a class="btn btn-primary" href="#fakty">Poznaj ciekawostki</a>
+          <button type="button" class="btn btn-ghost" id="scrollToGallery">Zobacz Polskę</button>
+        </div>
+        <dl class="hero-stats">
+          <div>
+            <dt>Lat niepodległości</dt>
+            <dd><span class="counter" data-target="108">0</span>+</dd>
+          </div>
+          <div>
+            <dt>UNESCO w Polsce</dt>
+            <dd><span class="counter" data-target="17">0</span></dd>
+          </div>
+          <div>
+            <dt>km² powierzchni</dt>
+            <dd><span class="counter" data-target="312">0</span> tys.</dd>
+          </div>
+        </dl>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="hero-orbit"></div>
+        <div class="hero-card">
+          <blockquote>
+            „Nie ma wolności bez solidarności.”
+            <cite>— tradycja polskiego ruchu „Solidarność”</cite>
+          </blockquote>
+        </div>
+      </div>
+    </section>
 
+    <section id="fakty" class="section facts">
+      <div class="container">
+        <header class="section-header">
+          <span class="section-tag">Wiedza</span>
+          <h2>Ciekawe fakty o Polsce</h2>
+          <p>Wylosuj nową ciekawostkę albo przejrzyj całą listę — każda z nich to powód do dumy.</p>
+        </header>
+        <div class="facts-layout">
+          <article class="fact-card" id="factDisplay" aria-live="polite">
+            <p class="fact-label">Losowy fakt</p>
+            <p class="fact-text" id="factText">Kliknij przycisk, aby wylosować pierwszy fakt.</p>
+            <footer class="fact-footer">
+              <span class="fact-index" id="factIndex"></span>
+            </footer>
+          </article>
+          <div class="facts-actions">
+            <button type="button" class="btn btn-primary" id="btnRandomFact">
+              <span class="btn-shine"></span>
+              Wylosuj fakt
+            </button>
+            <button type="button" class="btn btn-secondary" id="btnPrevFact">Poprzedni</button>
+            <button type="button" class="btn btn-secondary" id="btnNextFact">Następny</button>
+            <div class="fact-filters" role="group" aria-label="Filtry kategorii">
+              <span class="filter-label">Kategoria:</span>
+              <button type="button" class="chip is-active" data-cat="all">Wszystkie</button>
+              <button type="button" class="chip" data-cat="historia">Historia</button>
+              <button type="button" class="chip" data-cat="nauka">Nauka</button>
+              <button type="button" class="chip" data-cat="kultura">Kultura</button>
+              <button type="button" class="chip" data-cat="geografia">Geografia</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="galeria" class="section gallery">
+      <div class="container">
+        <header class="section-header">
+          <span class="section-tag">Obrazy</span>
+          <h2>Polska w kadrze</h2>
+          <p>Kliknij miniaturę, aby powiększyć zdjęcie i przeczytać krótki opis.</p>
+        </header>
+        <div class="gallery-grid" id="galleryGrid"></div>
+        <dialog class="lightbox" id="lightbox" aria-label="Powiększone zdjęcie">
+          <button type="button" class="lightbox-close" id="lightboxClose" aria-label="Zamknij">&times;</button>
+          <figure class="lightbox-inner">
+            <img src="" alt="" id="lightboxImg" />
+            <figcaption id="lightboxCaption"></figcaption>
+          </figure>
+        </dialog>
+      </div>
+    </section>
+
+    <section id="historia" class="section timeline-section">
+      <div class="container">
+        <header class="section-header">
+          <span class="section-tag">Chronologia</span>
+          <h2>Daty, które znamy na pamięć</h2>
+          <p>Krótki przegląd momentów, które ukształtowały Polskę.</p>
+        </header>
+        <ol class="timeline" id="timeline"></ol>
+        <div class="timeline-nav">
+          <button type="button" class="btn btn-ghost" id="timelinePrev">← Wcześniej</button>
+          <button type="button" class="btn btn-ghost" id="timelineNext">Później →</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="symbole" class="section symbols">
+      <div class="container">
+        <header class="section-header">
+          <span class="section-tag">Tożsamość</span>
+          <h2>Symbole narodowe</h2>
+          <p>Barwy, godło i melodia — to, co nas łączy ponad podziałami.</p>
+        </header>
+        <div class="symbols-grid">
+          <article class="symbol-card">
+            <div class="symbol-visual flag-stripes" aria-hidden="true"></div>
+            <h3>Flaga</h3>
+            <p>Biało-czerwona — barwy narodowe ustalone w ustawie z 1 lutego 1980 r. Biel symbolizuje czystość i honor, czerwień — odwagę i ofiarę.</p>
+          </article>
+          <article class="symbol-card">
+            <div class="symbol-visual emblem-wrap" aria-hidden="true">
+              <span class="emblem-placeholder">Orzeł</span>
+            </div>
+            <h3>Godło</h3>
+            <p>Biały orzeł w koronie na czerwonym tle — jeden z najstarszych znaków państwowych w Europie, sięgający średniowiecza.</p>
+          </article>
+          <article class="symbol-card">
+            <div class="symbol-visual anthem-bars" aria-hidden="true"></div>
+            <h3>Hymn</h3>
+            <p><strong>„Mazurek Dąbrowskiego”</strong> — hymn od 1927 r. Tekst Józefa Wybickiego z 1797 r. nawiązuje do Legionów i nadziei na wolną Ojczyznę.</p>
+            <button type="button" class="btn btn-secondary btn-tiny" id="playHymnNote">Posłuchaj nut (animacja)</button>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="wspolnota" class="section community">
+      <div class="container">
+        <header class="section-header">
+          <span class="section-tag">Działanie</span>
+          <h2>Patriotyzm dziś</h2>
+          <p>To nie tylko święta — to codzienne wybory: język, kultura, lokalne wsparcie i szacunek do historii.</p>
+        </header>
+        <div class="community-grid">
+          <div class="community-card">
+            <h3>Język i kultura</h3>
+            <p>Czytaj polską literaturę, wspieraj rodzime media i pamiętaj o tradycjach regionalnych.</p>
+          </div>
+          <div class="community-card">
+            <h3>Lokalna społeczność</h3>
+            <p>Wolontariat, pomoc sąsiadom i udział w życiu miasta budują silną Ojczyznę od dołu.</p>
+          </div>
+          <div class="community-card">
+            <h3>Pamięć historyczna</h3>
+            <p>Dbaj o miejsca pamięci, poznawaj biografie bohaterów i przekazuj wiedzę młodszym pokoleniom.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="cta" class="section cta">
+      <div class="container cta-inner">
+        <h2>JestemPatriotą</h2>
+        <p>Jeśli ta strona Ci się podoba — udostępnij ją innym Polakom. Razem tworzymy przestrzeń pełną dumy i szacunku do Polski.</p>
+        <div class="cta-buttons">
+          <button type="button" class="btn btn-primary" id="btnShare">Udostępnij stronę</button>
+          <a class="btn btn-ghost" href="#hero">Wróć na górę</a>
+        </div>
+        <p class="cta-note" id="shareStatus" role="status" aria-live="polite"></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="logo-mark small"></span>
+        <span>JestemPatriotą</span>
+      </div>
+      <p class="footer-copy">Strona ma charakter edukacyjny i patriotyczny. Zdjęcia: zasoby otwarte (Unsplash / Wikimedia).</p>
+      <p class="footer-year">© <span id="year"></span> — z dumą tworzone dla Polski</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
 </body>
 </html>
