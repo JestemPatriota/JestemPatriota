@@ -1,232 +1,407 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="JestemPatriotą — przestrzeń dla Polaków, którzy kochają Ojczyznę. Historia, fakty, symbolika i duma z Polski." />
-  <title>JestemPatriotą — Duma z Polski</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JestemPatriotą | Serce w bieli i czerwieni</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        /* --- Zmienne i Reset --- */
+        :root {
+            --primary-red: #DC143C;
+            --pure-white: #FFFFFF;
+            --soft-gray: #f4f4f4;
+            --dark-text: #2d3436;
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--soft-gray);
+            color: var(--dark-text);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* --- Nawigacja --- */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            font-weight: 900;
+            font-size: 1.5rem;
+            color: var(--primary-red);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-red);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* --- Sekcja Hero --- */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                        url('https://images.unsplash.com/photo-1590424744295-883393963489?q=80&w=2070&auto=format&fit=crop') center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 5rem;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            animation: fadeInDown 1s ease;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            max-width: 800px;
+            font-weight: 300;
+            margin-bottom: 40px;
+        }
+
+        .flag-bar {
+            width: 300px;
+            height: 10px;
+            background: linear-gradient(to bottom, #fff 50%, #DC143C 50%);
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+
+        /* --- Przyciski --- */
+        .btn-main {
+            padding: 15px 40px;
+            background: var(--primary-red);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-weight: 700;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 10px 20px rgba(220, 20, 60, 0.3);
+        }
+
+        .btn-main:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(220, 20, 60, 0.5);
+        }
+
+        /* --- Sekcja Ciekawostek (Slider) --- */
+        .curiosities {
+            padding: 100px 50px;
+            background: white;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+        }
+
+        .slider-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+            height: 400px;
+        }
+
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.5s ease;
+            padding: 50px;
+            background: var(--soft-gray);
+            border: 2px solid #eee;
+            opacity: 0;
+        }
+
+        .slide.active {
+            opacity: 1;
+        }
+
+        .slide-content i {
+            font-size: 4rem;
+            color: var(--primary-red);
+            margin-bottom: 20px;
+        }
+
+        /* --- Suwaki Interaktywne --- */
+        .interactive-range {
+            padding: 80px 50px;
+            background: #222;
+            color: white;
+            text-align: center;
+        }
+
+        input[type=range] {
+            width: 300px;
+            margin: 20px 0;
+            accent-color: var(--primary-red);
+        }
+
+        /* --- Grid z informacjami --- */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 100px 50px;
+        }
+
+        .card {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: var(--transition);
+            border-bottom: 5px solid transparent;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            border-bottom: 5px solid var(--primary-red);
+        }
+
+        /* --- Stopka --- */
+        footer {
+            background: #111;
+            color: white;
+            padding: 80px 50px 20px;
+            text-align: center;
+        }
+
+        .social-icons {
+            margin-bottom: 30px;
+        }
+
+        .social-icons i {
+            font-size: 1.5rem;
+            margin: 0 15px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .social-icons i:hover {
+            color: var(--primary-red);
+        }
+
+        /* --- Animacje --- */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- Responsywność --- */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            nav { padding: 20px; }
+            .nav-links { display: none; }
+        }
+    </style>
 </head>
 <body>
-  <div class="grain" aria-hidden="true"></div>
 
-  <header class="site-header">
-    <div class="header-inner">
-      <a class="logo" href="#hero" aria-label="JestemPatriotą — strona główna">
-        <span class="logo-mark"></span>
-        <span class="logo-text">Jestem<span class="logo-accent">Patriotą</span></span>
-      </a>
-      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Otwórz menu">
-        <span></span><span></span><span></span>
-      </button>
-      <nav id="site-nav" class="site-nav" aria-label="Nawigacja główna">
-        <a href="#fakty">Fakty</a>
-        <a href="#galeria">Galeria</a>
-        <a href="#historia">Historia</a>
-        <a href="#symbole">Symbole</a>
-        <a href="#wspolnota">Wspólnota</a>
-      </nav>
-      <div class="header-actions">
-        <button type="button" class="btn-theme" id="themeToggle" aria-label="Przełącz motyw jasny/ciemny">
-          <span class="theme-icon theme-icon-sun" aria-hidden="true"></span>
-          <span class="theme-icon theme-icon-moon" aria-hidden="true"></span>
-        </button>
-        <a class="btn btn-primary btn-small" href="#cta">Dołącz</a>
-      </div>
-    </div>
-  </header>
+    <nav>
+        <div class="logo">
+            <i class="fas fa-eagle"></i> JestemPatriotą
+        </div>
+        <ul class="nav-links">
+            <li><a href="#start">Start</a></li>
+            <li><a href="#ciekawostki">Ciekawostki</a></li>
+            <li><a href="#historia">Historia</a></li>
+            <li><a href="#symbole">Symbole</a></li>
+            <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
+        <button class="btn-main" style="padding: 10px 20px; font-size: 0.8rem;">Wspieraj</button>
+    </nav>
 
-  <main>
-    <section id="hero" class="hero">
-      <div class="hero-bg" aria-hidden="true"></div>
-      <div class="hero-content">
-        <p class="hero-eyebrow">Dla tych, którzy noszą Polskę w sercu</p>
-        <h1 class="hero-title">
-          <span class="hero-title-line">Jestem</span>
-          <span class="hero-title-accent">Patriotą</span>
-        </h1>
-        <p class="hero-lead">
-          Odkrywaj fakty o Polsce, podziwiaj jej piękno i przypominaj sobie, dlaczego warto być dumnym z własnej historii i kultury.
-        </p>
-        <div class="hero-buttons">
-          <a class="btn btn-primary" href="#fakty">Poznaj ciekawostki</a>
-          <button type="button" class="btn btn-ghost" id="scrollToGallery">Zobacz Polskę</button>
-        </div>
-        <dl class="hero-stats">
-          <div>
-            <dt>Lat niepodległości</dt>
-            <dd><span class="counter" data-target="108">0</span>+</dd>
-          </div>
-          <div>
-            <dt>UNESCO w Polsce</dt>
-            <dd><span class="counter" data-target="17">0</span></dd>
-          </div>
-          <div>
-            <dt>km² powierzchni</dt>
-            <dd><span class="counter" data-target="312">0</span> tys.</dd>
-          </div>
-        </dl>
-      </div>
-      <div class="hero-visual" aria-hidden="true">
-        <div class="hero-orbit"></div>
-        <div class="hero-card">
-          <blockquote>
-            „Nie ma wolności bez solidarności.”
-            <cite>— tradycja polskiego ruchu „Solidarność”</cite>
-          </blockquote>
-        </div>
-      </div>
+    <section class="hero" id="start">
+        <div class="flag-bar"></div>
+        <h1>Polska to My</h1>
+        <p>Odkryj piękno polskiej kultury, siłę naszej historii i dumę z bycia patriotą w XXI wieku.</p>
+        <button class="btn-main" onclick="scrollToSection('ciekawostki')">Rozpocznij Podróż</button>
     </section>
 
-    <section id="fakty" class="section facts">
-      <div class="container">
-        <header class="section-header">
-          <span class="section-tag">Wiedza</span>
-          <h2>Ciekawe fakty o Polsce</h2>
-          <p>Wylosuj nową ciekawostkę albo przejrzyj całą listę — każda z nich to powód do dumy.</p>
-        </header>
-        <div class="facts-layout">
-          <article class="fact-card" id="factDisplay" aria-live="polite">
-            <p class="fact-label">Losowy fakt</p>
-            <p class="fact-text" id="factText">Kliknij przycisk, aby wylosować pierwszy fakt.</p>
-            <footer class="fact-footer">
-              <span class="fact-index" id="factIndex"></span>
-            </footer>
-          </article>
-          <div class="facts-actions">
-            <button type="button" class="btn btn-primary" id="btnRandomFact">
-              <span class="btn-shine"></span>
-              Wylosuj fakt
-            </button>
-            <button type="button" class="btn btn-secondary" id="btnPrevFact">Poprzedni</button>
-            <button type="button" class="btn btn-secondary" id="btnNextFact">Następny</button>
-            <div class="fact-filters" role="group" aria-label="Filtry kategorii">
-              <span class="filter-label">Kategoria:</span>
-              <button type="button" class="chip is-active" data-cat="all">Wszystkie</button>
-              <button type="button" class="chip" data-cat="historia">Historia</button>
-              <button type="button" class="chip" data-cat="nauka">Nauka</button>
-              <button type="button" class="chip" data-cat="kultura">Kultura</button>
-              <button type="button" class="chip" data-cat="geografia">Geografia</button>
+    <section class="curiosities" id="ciekawostki">
+        <h2 class="section-title">Czy wiedziałeś, że...?</h2>
+        <div class="slider-container">
+            <div class="slide active">
+                <div class="slide-content">
+                    <i class="fas fa-monument"></i>
+                    <h3>Pierwsza Konstytucja</h3>
+                    <p>Polska Konstytucja 3 Maja była pierwszą w Europie i drugą na świecie nowoczesną ustawą zasadniczą.</p>
+                </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="galeria" class="section gallery">
-      <div class="container">
-        <header class="section-header">
-          <span class="section-tag">Obrazy</span>
-          <h2>Polska w kadrze</h2>
-          <p>Kliknij miniaturę, aby powiększyć zdjęcie i przeczytać krótki opis.</p>
-        </header>
-        <div class="gallery-grid" id="galleryGrid"></div>
-        <dialog class="lightbox" id="lightbox" aria-label="Powiększone zdjęcie">
-          <button type="button" class="lightbox-close" id="lightboxClose" aria-label="Zamknij">&times;</button>
-          <figure class="lightbox-inner">
-            <img src="" alt="" id="lightboxImg" />
-            <figcaption id="lightboxCaption"></figcaption>
-          </figure>
-        </dialog>
-      </div>
-    </section>
-
-    <section id="historia" class="section timeline-section">
-      <div class="container">
-        <header class="section-header">
-          <span class="section-tag">Chronologia</span>
-          <h2>Daty, które znamy na pamięć</h2>
-          <p>Krótki przegląd momentów, które ukształtowały Polskę.</p>
-        </header>
-        <ol class="timeline" id="timeline"></ol>
-        <div class="timeline-nav">
-          <button type="button" class="btn btn-ghost" id="timelinePrev">← Wcześniej</button>
-          <button type="button" class="btn btn-ghost" id="timelineNext">Później →</button>
-        </div>
-      </div>
-    </section>
-
-    <section id="symbole" class="section symbols">
-      <div class="container">
-        <header class="section-header">
-          <span class="section-tag">Tożsamość</span>
-          <h2>Symbole narodowe</h2>
-          <p>Barwy, godło i melodia — to, co nas łączy ponad podziałami.</p>
-        </header>
-        <div class="symbols-grid">
-          <article class="symbol-card">
-            <div class="symbol-visual flag-stripes" aria-hidden="true"></div>
-            <h3>Flaga</h3>
-            <p>Biało-czerwona — barwy narodowe ustalone w ustawie z 1 lutego 1980 r. Biel symbolizuje czystość i honor, czerwień — odwagę i ofiarę.</p>
-          </article>
-          <article class="symbol-card">
-            <div class="symbol-visual emblem-wrap" aria-hidden="true">
-              <span class="emblem-placeholder">Orzeł</span>
+            <div class="slide">
+                <div class="slide-content">
+                    <i class="fas fa-microscope"></i>
+                    <h3>Nobliści</h3>
+                    <p>Maria Skłodowska-Curie jest jedyną kobietą, która otrzymała Nagrodę Nobla dwa razy w różnych dziedzinach nauki.</p>
+                </div>
             </div>
-            <h3>Godło</h3>
-            <p>Biały orzeł w koronie na czerwonym tle — jeden z najstarszych znaków państwowych w Europie, sięgający średniowiecza.</p>
-          </article>
-          <article class="symbol-card">
-            <div class="symbol-visual anthem-bars" aria-hidden="true"></div>
-            <h3>Hymn</h3>
-            <p><strong>„Mazurek Dąbrowskiego”</strong> — hymn od 1927 r. Tekst Józefa Wybickiego z 1797 r. nawiązuje do Legionów i nadziei na wolną Ojczyznę.</p>
-            <button type="button" class="btn btn-secondary btn-tiny" id="playHymnNote">Posłuchaj nut (animacja)</button>
-          </article>
+            <div class="slide">
+                <div class="slide-content">
+                    <i class="fas fa-mountain"></i>
+                    <h3>Pustynia w Polsce?</h3>
+                    <p>Pustynia Błędowska to największy w Polsce i jeden z największych w Europie obszarów lotnych piasków.</p>
+                </div>
+            </div>
         </div>
-      </div>
+        <div style="text-align:center; margin-top: 20px;">
+            <button class="btn-main" onclick="prevSlide()" style="padding: 10px 20px;"><i class="fas fa-chevron-left"></i></button>
+            <button class="btn-main" onclick="nextSlide()" style="padding: 10px 20px;"><i class="fas fa-chevron-right"></i></button>
+        </div>
     </section>
 
-    <section id="wspolnota" class="section community">
-      <div class="container">
-        <header class="section-header">
-          <span class="section-tag">Działanie</span>
-          <h2>Patriotyzm dziś</h2>
-          <p>To nie tylko święta — to codzienne wybory: język, kultura, lokalne wsparcie i szacunek do historii.</p>
-        </header>
-        <div class="community-grid">
-          <div class="community-card">
-            <h3>Język i kultura</h3>
-            <p>Czytaj polską literaturę, wspieraj rodzime media i pamiętaj o tradycjach regionalnych.</p>
-          </div>
-          <div class="community-card">
-            <h3>Lokalna społeczność</h3>
-            <p>Wolontariat, pomoc sąsiadom i udział w życiu miasta budują silną Ojczyznę od dołu.</p>
-          </div>
-          <div class="community-card">
-            <h3>Pamięć historyczna</h3>
-            <p>Dbaj o miejsca pamięci, poznawaj biografie bohaterów i przekazuj wiedzę młodszym pokoleniom.</p>
-          </div>
-        </div>
-      </div>
+    <section class="interactive-range">
+        <h2>Jak bardzo czujesz się dziś dumny?</h2>
+        <p>Przesuń suwak, aby wyrazić swoją dumę z ojczyzny!</p>
+        <input type="range" min="0" max="100" value="50" id="prideRange" oninput="updatePride(this.value)">
+        <h3 id="prideText">Czuję się solidnie! (50%)</h3>
     </section>
 
-    <section id="cta" class="section cta">
-      <div class="container cta-inner">
-        <h2>JestemPatriotą</h2>
-        <p>Jeśli ta strona Ci się podoba — udostępnij ją innym Polakom. Razem tworzymy przestrzeń pełną dumy i szacunku do Polski.</p>
-        <div class="cta-buttons">
-          <button type="button" class="btn btn-primary" id="btnShare">Udostępnij stronę</button>
-          <a class="btn btn-ghost" href="#hero">Wróć na górę</a>
+    <section class="info-grid">
+        <div class="card">
+            <i class="fas fa-history" style="font-size: 2rem; color: var(--primary-red); margin-bottom: 20px;"></i>
+            <h3>Nasza Historia</h3>
+            <p>Ponad 1000 lat tradycji, od Mieszka I po czasy współczesne. Poznaj kluczowe momenty, które nas ukształtowały.</p>
         </div>
-        <p class="cta-note" id="shareStatus" role="status" aria-live="polite"></p>
-      </div>
+        <div class="card">
+            <i class="fas fa-paint-brush" style="font-size: 2rem; color: var(--primary-red); margin-bottom: 20px;"></i>
+            <h3>Kultura i Sztuka</h3>
+            <p>Od Chopina po Pendereckiego. Polska kultura to skarbnica talentów, która inspiruje cały świat.</p>
+        </div>
+        <div class="card">
+            <i class="fas fa-map-marked-alt" style="font-size: 2rem; color: var(--primary-red); margin-bottom: 20px;"></i>
+            <h3>Natura</h3>
+            <p>Bałtyk, Tatry, Mazury. Nasza ziemia oferuje różnorodność, której mogą nam pozazdrościć inni.</p>
+        </div>
     </section>
-  </main>
 
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <div class="footer-brand">
-        <span class="logo-mark small"></span>
-        <span>JestemPatriotą</span>
-      </div>
-      <p class="footer-copy">Strona ma charakter edukacyjny i patriotyczny. Zdjęcia: zasoby otwarte (Unsplash / Wikimedia).</p>
-      <p class="footer-year">© <span id="year"></span> — z dumą tworzone dla Polski</p>
-    </div>
-  </footer>
+    <footer>
+        <div class="logo" style="justify-content: center; margin-bottom: 30px; color: white;">
+            <i class="fas fa-eagle"></i> JESTEM PATRIOTĄ
+        </div>
+        <div class="social-icons">
+            <i class="fab fa-facebook-f"></i>
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-twitter"></i>
+            <i class="fab fa-youtube"></i>
+        </div>
+        <p>&copy; 2024 Projekt "JestemPatriotą". Stworzono z pasją do Polski.</p>
+        <p style="font-size: 0.7rem; color: #555; margin-top: 10px;">Kod projektu wykonany w celach edukacyjnych i patriotycznych.</p>
+    </footer>
 
-  <script src="js/main.js"></script>
+    <script>
+        // --- Obsługa Slidera ---
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+
+        function showSlide(index) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            if (index >= slides.length) currentSlide = 0;
+            if (index < 0) currentSlide = slides.length - 1;
+            slides[currentSlide].classList.add('active');
+        }
+
+        function nextSlide() {
+            currentSlide++;
+            showSlide(currentSlide);
+        }
+
+        function prevSlide() {
+            currentSlide--;
+            showSlide(currentSlide);
+        }
+
+        // --- Automatyczny slider co 5 sekund ---
+        setInterval(nextSlide, 5000);
+
+        // --- Obsługa suwaka dumy ---
+        function updatePride(val) {
+            const text = document.getElementById('prideText');
+            if(val < 30) text.innerText = `Budzę w sobie siłę! (${val}%)`;
+            else if(val < 70) text.innerText = `Czuję się solidnie! (${val}%)`;
+            else text.innerText = `Duma mnie rozpiera! 🇵🇱 (${val}%)`;
+        }
+
+        // --- Płynne przewijanie ---
+        function scrollToSection(id) {
+            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // --- Efekt scrollowania Menu ---
+        window.onscroll = function() {
+            const nav = document.querySelector('nav');
+            if (window.pageYOffset > 50) {
+                nav.style.padding = "10px 50px";
+                nav.style.background = "rgba(255, 255, 255, 0.98)";
+            } else {
+                nav.style.padding = "20px 50px";
+                nav.style.background = "rgba(255, 255, 255, 0.95)";
+            }
+        };
+    </script>
 </body>
 </html>
